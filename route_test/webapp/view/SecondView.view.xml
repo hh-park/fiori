@@ -1,0 +1,11 @@
+<mvc:View controllerName="sync6.cl1.routetest.controller.SecondView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page2" title="{i18n>title}">
+        <Panel >
+            <Label id="second" text="Second page"/>
+            <Button id="btn2" text="Go first view" press="onFirst()"/>
+            <Button id="btn4" text="Go third view" press="onThird()"/>
+        </Panel>
+    </Page>
+</mvc:View>

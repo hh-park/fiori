@@ -1,0 +1,43 @@
+<mvc:View controllerName="sync6.cl1.scriptedu.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox>
+        <Panel >
+            <HBox >
+                <Input id="word" placeholder="Input text" width="150px"/>
+                <Button id="btn1" text="click" press="onFruits()"/>
+                <Button id="btn5" text="{btn>/Btext}" icon="{btn>/Bicon}" press="onWidth()"/>
+            </HBox>
+        </Panel>
+        <Panel >
+            <HBox >
+                <Input id="num1" width="50px"/>
+                <Label text=" + "/>
+                <Input id="num2" width="50px"/>
+                <Label text=" = " />
+                <Input id="result" width="50px" editable="false"/>
+                <Button id="btn2" text="Calcul" press="onAdd()" icon="sap-icon://simulate"/>
+            </HBox>
+        </Panel>
+        <Panel >
+            <HBox >
+                <Label text="for(a;b;c)" />
+                <Button id="btn3" icon="sap-icon://repost" press="onFor()"/>
+            </HBox>
+        </Panel>
+        <Panel>
+            <HBox >
+                <Button id="btn4" text="{/Btntext}" icon="{/Btnicon}" />
+                <Input id="in1" value="{/gs_input/Intext}" />
+            </HBox>
+        </Panel>
+        <Panel>
+            <HBox >
+                <Input id="car" value="{student>/gs_vehicle/Kind}" description="{student>/gs_vehicle/Length}"/>
+                <Button id="btn6" text="Clear" press="onClear()"/>
+            </HBox>
+        </Panel>
+        </VBox>
+    </Page>
+</mvc:View>

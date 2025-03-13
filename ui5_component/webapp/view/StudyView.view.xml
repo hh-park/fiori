@@ -1,0 +1,24 @@
+<mvc:View controllerName="sync6.cl1.ui5component.controller.StudyView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox >
+            <Panel >
+                <Button id="bt1" text="{btn1>/text}" width="{btn1>/width}" icon="{btn1>/icon}"/>
+            </Panel>
+            <Panel >
+                <Button id="bt2" text="{btn2>/button/text}" width="{btn2>/button/width}" enabled="{btn2>/button/enabled}"/>
+            </Panel>
+            <Panel >
+                <Input id="ip1" value="{btn2>/input1/value}" description="{btn2>/input1/description}" 
+                        width="{btn2>/input1/width}" maxLength="{btn2>/input1/maxLength}"
+                       showClearIcon="{btn2>/input1/showClearIcon}" />
+            </Panel>
+            <Panel >
+                <Input id="ip2" description="{btn2>/input2/description}" 
+                        width="{btn2>/input2/width}" maxLength="{btn2>/input2/maxLen}"
+                        />
+            </Panel>
+        </VBox>
+    </Page>
+</mvc:View>
