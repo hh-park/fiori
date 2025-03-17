@@ -1,0 +1,54 @@
+<mvc:View controllerName="sync6.cl1.a10.finalchart.controller.CdsView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:mr="sap.suite.ui.microchart">
+    <Page id="page" title="{i18n>title}">
+        <viz:VizFrame id="idLineFrame" uiConfig="{applicationSet:'fiori'}"
+        height='100%' width="100%" vizType='line'
+        vizProperties="{
+            title:{text:'Seats booking Information'},
+            legend:{drawingEffect:'glossy'},
+            plotArea:{drawingEffect:'glossy'}
+        }">
+        <viz:dataset>
+            <viz.data:FlattenedDataset data="{/FlightSet}">
+                <viz.data:dimensions>
+                    <viz.data:DimensionDefinition name="Airline" value="{Carrname}" />
+                </viz.data:dimensions>
+                <viz.data:measures>
+                    <viz.data:MeasureDefinition name="Capacity" value="{Seatsmax}" />
+                    <viz.data:MeasureDefinition name="Occupied" value="{Seatsocc}" />
+                </viz.data:measures>
+            </viz.data:FlattenedDataset>
+        </viz:dataset>
+
+        <viz:feeds>
+            <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                values="Capacity" />
+            <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis" type="Measure"
+                values="Occupied" />
+            <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+                values="Airline" />
+        </viz:feeds>
+        <viz:dependents>
+            <viz:Popover id="idPopOver"></viz:Popover>
+        </viz:dependents>
+
+    </viz:VizFrame>
+
+    <!-- <FlexBox width="700px" height="400px" alignItems="Start" justifyContent="SpaceBetween">
+        <mr:InteractiveDonutChart displayedSegments="15" segments="{/FlightSet}" >
+
+        <mr:InteractiveDonutChartSegment label="{Carrid}" 
+                                        value="{=parseInt(${Seatsmax})}" 
+                                        displayedValue="{Seatsmax}"
+                                        color="Critical" />
+
+        </mr:InteractiveDonutChart>
+    </FlexBox> -->
+    </Page>
+</mvc:View>

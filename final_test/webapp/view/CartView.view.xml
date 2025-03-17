@@ -1,0 +1,131 @@
+<mvc:View controllerName="sync6.cl1.a10.finaltest.controller.CartView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <Panel >
+            <VBox >
+                <t:Table id="infoTable"
+                         rows="{/InfoSet}"
+                         selectionMode="Single"
+                         paste="onPaste"
+                         ariaLabelledBy="title">
+                    <t:extension>
+                        <OverflowToolbar >
+                            <Button text="Search" icon="sap-icon://search" press="onSearch" />
+                            <Input id="IRemark" placeholder="Remark" width="10rem" />
+                            <Input id="IBelnr" placeholder="Document number" width="12rem" />
+                        </OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <t:Column width="4rem">
+                            <Label text="{/#InfoSet/Ryear/@sap:label}" />
+                            <t:template>
+                                <Text text="{Ryear}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="5rem">
+                            <Label text="{/#InfoSet/Rbukrs/@sap:label}" />
+                            <t:template>
+                                <Text text="{Rbukrs}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Label text="{/#InfoSet/Belnr/@sap:label}" />
+                            <t:template>
+                                <Text text="{Belnr}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Label text="{/#InfoSet/Racct/@sap:label}" />
+                            <t:template>
+                                <Text text="{Racct}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="18rem">
+                            <Label text="{/#InfoSet/Txt50/@sap:label}" />
+                            <t:template>
+                                <Text text="{Txt50}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="10rem">
+                            <Label text="{/#InfoSet/Remark/@sap:label}" />
+                            <t:template>
+                                <Text text="{Remark}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="11rem">
+                            <Label text="{/#InfoSet/Hsl/@sap:label}" />
+                            <t:template>
+                                <Text text="{
+                                    parts:[{path:'Hsl'},{path:'Rtcur'}],
+                                    type: 'sap.ui.model.type.Currency',
+                                    formatOptions: {showMeasure: true }
+                                    }"
+                                wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="11rem">
+                            <Label text="{/#InfoSet/PostYn/@sap:label}" />
+                            <t:template>
+                                <Text text="{PostYn}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                </t:Table>
+
+                <OverflowToolbar >
+                    <ToolbarSpacer width="45rem" />
+                    <Label text="Contents" />
+                    <Button text="Clear"   icon="sap-icon://clear-all" press="onClear"   />
+                    <Button text="Display" icon="sap-icon://display"   press="onDisplay" />
+                    <Button text="Create"  icon="sap-icon://create"    press="onCreate"  />
+                    <Button text="Edit"    icon="sap-icon://edit"      press="onUpdate"  />
+                    <Button text="Delete"  icon="sap-icon://delete"    press="onDelete"  />
+                </OverflowToolbar>
+
+                <f:SimpleForm   id="contentForm"
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="3"
+                                labelSpanL="3"
+                                labelSpanM="3"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="4"
+                                emptySpanL="4"
+                                emptySpanM="4"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false" >
+                    <f:content>
+                        <Label text="G/L Fiscal Year" />
+                        <Input id="Ryear" placeholder="G/L Fiscal Year" width="10rem"/>
+                        <Label text="Company Code" />
+                        <Input id="Rbukrs" placeholder="Company Code" width="10rem"/>
+                        <Label text="Document No" />
+                        <Input id="Belnr" placeholder="Document No" width="10rem"/>
+                        <Label text="Account Number" />
+                        <Input id="Racct" placeholder="Account Number" width="7rem"/>
+                        <Label text="G/L Account Long Text" />
+                        <Input id="Txt50" placeholder="G/L Account Long Text" 
+                                width="20rem" />
+                        <Label text="Line item text" />
+                        <Input id="Remark" placeholder="Line item text" width="15rem"/>
+                        <Label text="Amount" />
+                        <Input id="Hsl" placeholder="Amount" width="10rem"/>
+                        <Label text="Currency" />
+                        <Input id="Rtcur" placeholder="Currency" width="10rem"/>
+                        <Label text="Posting indicator" />
+                        <Input id="PostYn" placeholder="Posting indicator" width="2rem"/>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </Panel>
+    </Page>
+</mvc:View>

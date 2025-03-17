@@ -1,7 +1,7 @@
 {
-  "_version": "1.60.0",
+  "_version": "1.65.0",
   "sap.app": {
-    "id": "sync6.cl1.documentedit10",
+    "id": "sync6.cl1.a10.finalchart",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,14 +13,21 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.16.5",
-      "toolsId": "63bc3472-4baf-4f67-ad0c-70aece7d2f30"
+      "toolsId": "f9e919b6-2203-4b8f-8b1c-d795d608f87b"
     },
     "dataSources": {
+      "ZCDS_SFLIGHT_10_01_CDS_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZCDS_SFLIGHT_10_01_CDS_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/mainService/ZCDS_SFLIGHT_10_01_CDS_VAN.xml"
+        }
+      },
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZGWCL1DOCU10_SRV/",
+        "uri": "/sap/opu/odata/sap/ZCDS_SFLIGHT_10_01_CDS/",
         "type": "OData",
         "settings": {
-          "annotations": [],
+          "annotations": ["ZCDS_SFLIGHT_10_01_CDS_VAN"],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
         }
@@ -46,7 +53,7 @@
   "sap.ui5": {
     "flexEnabled": false,
     "dependencies": {
-      "minUI5Version": "1.120.0",
+      "minUI5Version": "1.133.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {}
@@ -60,7 +67,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "sync6.cl1.documentedit.i18n.i18n"
+          "bundleName": "sync6.cl1.a10.finalchart.i18n.i18n"
         }
       },
       "": {
@@ -84,26 +91,26 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "sync6.cl1.documentedit.view",
+        "path": "sync6.cl1.a10.finalchart.view",
         "async": true,
-        "viewPath": "sync6.cl1.documentedit.view"
+        "viewPath": "sync6.cl1.a10.finalchart.view"
       },
       "routes": [
         {
-          "name": "RouteDocuView",
+          "name": "RouteCdsView",
           "pattern": ":?query:",
-          "target": ["TargetDocuView"]
+          "target": ["TargetCdsView"]
         }
       ],
       "targets": {
-        "TargetDocuView": {
-          "id": "DocuView",
-          "name": "DocuView"
+        "TargetCdsView": {
+          "id": "CdsView",
+          "name": "CdsView"
         }
       }
     },
     "rootView": {
-      "viewName": "sync6.cl1.documentedit.view.App",
+      "viewName": "sync6.cl1.a10.finalchart.view.App",
       "type": "XML",
       "id": "App"
     }
